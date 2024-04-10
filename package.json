@@ -1,19 +1,27 @@
 {
-  "name": "telnet-tty",
-  "version": "0.1.0",
-  "description": "TTY interface for Telnet sessions",
-  "main": "index.mjs",
-  "scripts": {
-    "example": "node examples/interface.mjs"
-  },
-  "keywords": [
-    "Telnet",
-    "TTY"
-  ],
-  "author": "Andste82",
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "^8.57.0",
-	"hexdump-nodejs": "^0.1.0"
+	"name": "@andste82/telnet-tty",
+	"version": "0.1.0",
+	"description": "TTY interface for Telnet sessions",
+	"repository": {
+	  "type": "git",
+	  "url": "https://github.com/Andste82/telnet-tty.git"
+	},
+	"main": "index.mjs",
+	"scripts": {
+	  "example": "node examples/interface.mjs"
+	},
+	"keywords": [
+	  "Telnet",
+	  "TTY"
+	],
+	"tags": [
+	  "Telnet",
+	  "TTY"
+	],
+	"author": "Andste82",
+	"license": "MIT",
+	"devDependencies": {
+	  "eslint": "^8.57.0",
+	  "hexdump-nodejs": "^0.1.0"
+	}
   }
-}
