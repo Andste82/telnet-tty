@@ -129,18 +129,18 @@ const DECODE_IGNORE_1 = 6;
 const log = (...args) =>
 {
 	// console.log(...args);
-}
+};
 
 const loge = (...args) =>
 {
 	// console.error(...args);
-}
+};
 
 const logh = (name, arg) =>
 {
 	// console.log(name);
 	// console.log(hexdump(arg));
-}
+};
 
 export class TelnetSession extends Duplex
 {
@@ -165,7 +165,7 @@ export class TelnetSession extends Duplex
 			logh("TX", data);
 
 			this.#socket.write(data, encoding, callback);
-		}
+		};
 
 		['DO', 'DONT', 'WILL', 'WONT'].forEach((commandName) =>
 		{
@@ -183,18 +183,18 @@ export class TelnetSession extends Duplex
 					buf[2] = OPTIONS[optionName];
 
 					this.#send(buf);
-				}
+				};
 			});
 		});
 
 		this.#c2s.naws = (data) =>
 		{
-			if (data.length < 4) return -1
+			if (data.length < 4) return -1;
 			this.#columns = data.readUInt16BE(0);
 			this.#rows = data.readUInt16BE(2);
 
 			this.emit('resize');
-		}
+		};
 
 		// tty enable
 		this.setRawMode(true);
@@ -353,7 +353,7 @@ export class TelnetSession extends Duplex
 
 	get isTTY()
 	{
-		return this.#isTTY
+		return this.#isTTY;
 	}
 
 	get columns()
@@ -403,6 +403,13 @@ export class TelnetSession extends Duplex
 	_write(chunk, encoding, callback)
 	{
 		log("_write", chunk, encoding, callback);
+
+		if (chunk instanceof String)
+		{
+			// telnet specifies \r\n as line ending!
+			chunk = chunk.replace(/\r?\n/g, '\r\n');
+		}
+
 		this.#send(chunk, encoding, callback);
 	}
 
