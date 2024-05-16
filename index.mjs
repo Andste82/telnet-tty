@@ -404,10 +404,15 @@ export class TelnetSession extends Duplex
 	{
 		log("_write", chunk, encoding, callback);
 
+		// telnet specifies \r\n as line ending!
 		if (chunk instanceof String)
 		{
-			// telnet specifies \r\n as line ending!
 			chunk = chunk.replace(/\r?\n/g, '\r\n');
+		}
+		else if (chunk instanceof Buffer)
+		{
+			const str = chunk.toString('utf8').replace(/\r?\n/g, '\r\n');
+			chunk = Buffer.from(str, 'utf8');
 		}
 
 		this.#send(chunk, encoding, callback);
