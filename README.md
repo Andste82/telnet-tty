@@ -18,7 +18,7 @@ This example demonstrates how a telnet-tty session can be connected to the `node
 
 ```js
 import { createInterface } from 'node:readline';
-import { TelnetServer } from 'telnet-tty';
+import { TelnetServer } from '@andste82/telnet-tty';
 
 const server = new TelnetServer();
 

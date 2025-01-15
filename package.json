@@ -1,6 +1,6 @@
 {
 	"name": "@andste82/telnet-tty",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "TTY interface for Telnet sessions",
 	"repository": {
 	  "type": "git",
@@ -21,7 +21,7 @@
 	"author": "Andste82",
 	"license": "MIT",
 	"devDependencies": {
-	  "eslint": "^8.57.0",
+	  "eslint": "^9.18.0",
 	  "hexdump-nodejs": "^0.1.0"
 	}
   }
